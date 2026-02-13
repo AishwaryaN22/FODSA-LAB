@@ -1,0 +1,28 @@
+import pandas as pd
+import numpy as np
+data = {
+    "Marks": [70, 75, 80, 85, 90]
+}
+df = pd.DataFrame(data)
+print("Data:")
+print(df)
+mean_pandas = df["Marks"].mean()
+variance_pandas = df["Marks"].var()
+std_pandas = df["Marks"].std()
+print("\nUsing Pandas:")
+print("Mean =", mean_pandas)
+print("Variance =", variance_pandas)
+print("Standard Deviation =", std_pandas)
+mean_numpy = np.mean(df["Marks"])
+variance_numpy = np.var(df["Marks"], ddof=1)   # ddof=1 for sample variance
+std_numpy = np.std(df["Marks"], ddof=1)        # ddof=1 for sample std
+print("\nUsing NumPy:")
+print("Mean =", mean_numpy)
+print("Variance =", variance_numpy)
+print("Standard Deviation =", std_numpy)
+if (mean_pandas == mean_numpy) and \
+   (variance_pandas == variance_numpy) and \
+   (std_pandas == std_numpy):
+    print("\nBoth Pandas and NumPy give the same results!")
+else:
+    print("\nThere is a difference in results.")
