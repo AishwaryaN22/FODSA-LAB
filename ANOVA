@@ -1,0 +1,17 @@
+import numpy as np
+from scipy import stats
+
+group1 = np.array([25, 28, 30, 32, 29])
+group2 = np.array([22, 24, 27, 26, 23])
+group3 = np.array([30, 34, 33, 31, 35])
+
+f_statistic, p_value = stats.f_oneway(group1, group2, group3)
+
+print("F-Statistic:", f_statistic)
+print("P-value:", p_value)
+
+alpha = 0.05
+if p_value < alpha:
+    print("Reject the null hypothesis (Means are significantly different)")
+else:
+    print("Fail to reject the null hypothesis (No significant difference)")
