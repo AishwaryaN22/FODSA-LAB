@@ -1,0 +1,16 @@
+import pandas as pd
+import numpy as np
+
+data = {
+    'X': [10, 20, 30, 40, 50],
+    'Y': [12, 24, 33, 45, 54]
+}
+
+df = pd.DataFrame(data)
+
+correlation_pandas = df['X'].corr(df['Y'])
+
+correlation_numpy = np.corrcoef(df['X'], df['Y'])[0, 1]
+
+print("Correlation using pandas:", correlation_pandas)
+print("Correlation using numpy:", correlation_numpy)
