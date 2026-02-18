@@ -1,0 +1,17 @@
+import numpy as np
+from scipy import stats
+
+sample = np.array([52, 55, 51, 54, 53, 56, 50, 52, 54, 53])
+
+population_mean = 50
+
+t_statistic, p_value = stats.ttest_1samp(sample, population_mean)
+
+print("T-Statistic:", t_statistic)
+print("P-value:", p_value)
+
+alpha = 0.05
+if p_value < alpha:
+    print("Reject the null hypothesis")
+else:
+    print("Fail to reject the null hypothesis")
