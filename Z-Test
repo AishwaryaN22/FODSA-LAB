@@ -1,0 +1,24 @@
+import numpy as np
+from scipy.stats import norm
+
+sample = np.array([52, 55, 51, 54, 53, 56, 50, 52, 54, 53])
+
+population_mean = 50
+population_std = 5   # Known population standard deviation
+
+sample_mean = np.mean(sample)
+n = len(sample)
+
+z = (sample_mean - population_mean) / (population_std / np.sqrt(n))
+
+p_value = 2 * (1 - norm.cdf(abs(z)))
+
+print("Sample Mean:", sample_mean)
+print("Z-Statistic:", z)
+print("P-value:", p_value)
+
+alpha = 0.05
+if p_value < alpha:
+    print("Reject the null hypothesis")
+else:
+    print("Fail to reject the null hypothesis")
